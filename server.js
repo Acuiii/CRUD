@@ -1,9 +1,15 @@
+// we cal also add mutiple api and do the same things like we did before
+// add api/user, usercontroller, userroute, usermodel, user server path
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
 //import product routes to server.js
 const productRoute = require('./routes/productRoute')
+
+// import middleware error 
+const errorMidleware = require('./middleware/errorMiddleware')
 
 // dotenv 
 require('dotenv').config()
@@ -18,10 +24,22 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/products', productRoute)
 
 
+// add middleware error function
+// add this function after throw error
+app.use(errorMidleware)
+
 // get route (testing)
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    res.send('Hello Node API')
+
+    //// next, we apply custom middleware be more secure ////next part
+    //// server response if enable throw new error
+    //// server give information details, its not secure for api
+    //// create middleware folder
+    // throw new Error('Fake error')
+    
 })
+
 
 app.get('/blog', (req, res) => {
     res.send('Hello Blog, my name is ')
