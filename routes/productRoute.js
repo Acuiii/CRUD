@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 //import product model
-const Product = require('../models/productModels')
+//const Product = require('../models/productModels')
 
 //import product controller
 const {getProducts, getProduct, createProduct, updateProduct, deleteProduct} = require('../controllers/productController')

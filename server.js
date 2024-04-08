@@ -2,10 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
-
 //import product routes to server.js
 const productRoute = require('./routes/productRoute')
-
 
 // dotenv 
 require('dotenv').config()
